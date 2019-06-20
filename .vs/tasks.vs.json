@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-json5_parser",
+      "appliesTo": "json5_parser/",
+      "type": "launch"
+    }
+  ]
+}
