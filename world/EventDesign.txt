@@ -1,0 +1,5 @@
+
+
+Map Cooordinate(x,y) plays Event located at Coordinate:x,y in the JSON.
+If there are branches in decisions, then we include a named subdirective
+within the coordinate to maneuver into.
