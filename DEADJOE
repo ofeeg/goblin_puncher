@@ -1,0 +1,64 @@
+
+*** These modified files were found in JOE when it aborted on Wed Jun 26 21:58:51 2019
+*** JOE was aborted by UNIX signal 1
+
+*** File '/home/geefo/projects/goblin_puncher/.git/COMMIT_EDITMSG'
+Implementing Event and unit tests along with adding new library.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   tests/JSONParserTest.cc
+#	modified:   tests/JSONParserTest.hh
+#	new file:   tests/JSONParserTest.hh~
+#	new file:   tests/test
+#	new file:   world/.#StoryReader.cc
+#	new file:   world/.#StoryReader.hh
+#	new file:   world/.#StoryReader_test.cc
+#	new file:   world/EventDesign.txt
+#	new file:   world/EventDesign.txt~
+#	new file:   world/ScriptReader.hh~
+#	new file:   world/event.cc
+#	new file:   world/event.cc~
+#	new file:   world/event.hh
+#	new file:   world/event.hh~
+#	new file:   world/event_test
+#	new file:   world/event_test.cc
+#	new file:   world/event_test.cc~
+#	new file:   world/experimental/ScriptReader.hh
+#
+
+*** File '(Unnamed)'
+val 
+val 
+val
+\^val\$
+\^val\$\*
+\^val\$
+val
+val
+token
+Token
+
+*** File '(Unnamed)'
+event_test.cc
+event.cc
+event.hh
+event_test.cc
+event.cc
+event.hh
+event.cc
+event_test.cc
+event.cc
+event_test.cc
+/home/geefo/projects/goblin_puncher/.git/COMMIT_EDITMSG
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc
