@@ -10,7 +10,8 @@ struct Map2DNode{
 class Map{
     std::vector<Map2DNode> NodeList;
     int len, wid;
+    constexpr void InitNodes();
     public:
         Map(int x, int y): wid(x), len(y){NodeList.reserve(len * wid);}
-        void PlayNode(int x, int y){std::cout << &NodeList[
+        void PlayNode(int x, int y);
     }; 

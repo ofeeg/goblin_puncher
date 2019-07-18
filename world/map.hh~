@@ -12,4 +12,5 @@ class Map{
     int len, wid;
     public:
         Map(int x, int y): wid(x), len(y){NodeList.reserve(len * wid);}
+        void PlayNode(int x, int y);
     }; 
