@@ -3,8 +3,13 @@
 
 int main(){
     Event gg (0,0);
-    gg.getFile()
+    Event ff (1,0);
+    // gg.getFile()
     gg.DisplayEvent();
+    ff.DisplayEvent();
+    std::string flag = "SECOND FLAG";
+    ff.SetFlags(flag);
+    ff.DisplayEvent();
     //std::cout << gg;
     return 0;
     }
