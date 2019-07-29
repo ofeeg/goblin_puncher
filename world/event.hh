@@ -7,11 +7,11 @@ class Event{
     std::vector<std::string> Flags = {"INITIAL FLAG"};
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
-    void ExtractStoryFromFile();
+    constexpr void ExtractStoryFromFile() const;
     void getFile();
-    std::string FlagSelector();
+    std::string FlagSelector() const;
     public:
-        Event(int x, int y, bool z=true) : x_coordinate(x), y_coordinate(y), DeleteInitialFlag(z){};
+        constexpr Event(int x, int y) : x_coordinate(x), y_coordinate(y){};
         void DisplayEvent();
         void SetFlags(std::string &flag);
         

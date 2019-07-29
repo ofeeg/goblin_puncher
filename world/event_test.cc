@@ -2,8 +2,8 @@
 #include <iostream>
 
 int main(){
-    Event gg (0,0);
-    Event ff (1,0);
+    constexpr Event gg (0,0);
+    constexpr Event ff (1,0);
     // gg.getFile()
     gg.DisplayEvent();
     ff.DisplayEvent();
