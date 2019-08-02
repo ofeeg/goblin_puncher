@@ -8,10 +8,10 @@ class Event{
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
     void ExtractStoryFromFile();
-    void getFile();
     std::string FlagSelector();
     public:
-        Event(int x, int y, bool z=true) : x_coordinate(x), y_coordinate(y), DeleteInitialFlag(z){};
+        Event(int x, int y, const nlohmann::json &jsonFile, bool z=true) : 
+            x_coordinate(x), y_coordinate(y), Story(jsonFile), DeleteInitialFlag(z){};
         void DisplayEvent();
         void SetFlags(std::string &flag);
         

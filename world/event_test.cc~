@@ -8,6 +8,8 @@ int main(){
     gg.DisplayEvent();
     ff.DisplayEvent();
     std::string flag = "SECOND FLAG";
+    std::string flag1  = "THIRD FLAG";
+    ff.SetFlags(flag1);
     ff.SetFlags(flag);
     ff.DisplayEvent();
     //std::cout << gg;

@@ -2,8 +2,10 @@
 #include <iostream>
 
 int main(){
-    Event gg (0,0);
-    Event ff (1,0);
+    std::ifstream jsonfile("Story.json");
+    nlohmann::json Story = nlohmann::json::parse(jsonfile);
+    Event gg (0,0, Story);
+    Event ff (1,0, Story);
     // gg.getFile()
     gg.DisplayEvent();
     ff.DisplayEvent();
