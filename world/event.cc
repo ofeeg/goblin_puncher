@@ -1,15 +1,22 @@
 #include "event.hh"
 
-//Event::Event(int x, int y) :  x_coordinate(x) , y_coordinate(y){};
-//void Event::getFile(){ }
-std::string Event::FlagSelector(){
-    if(DeleteInitialFlag){
-        std::string InitialFlag = Flags[0];        
-        if(!InitialFlag.compare("INITIAL FLAG")){Flags.erase(Flags.begin()); DeleteInitialFlag = false; return InitialFlag;}
+
+std::string Event::FlagSelector(const std::vector<Flag>& compare={}){
+    for(auto& i : FlagList){
+        std::cout << i.tag << ",";
         }
-    std::string currentFlag = Flags[0];
-    return currentFlag;
-    //else{}
+    std::cout << "\n";
+    if(DeleteInitialFlag){
+        std::string InitialFlag = FlagList[0].tag;        
+        if(!InitialFlag.compare("INITIAL FLAG")){FlagList.erase(FlagList.begin()); DeleteInitialFlag = false; return InitialFlag;}
+        }
+    if(!compare.empty()){
+        
+        }
+    else{
+        std::string SelectedFlag = FlagList[0].tag;
+        return SelectedFlag;
+        }
     }
 void Event::ExtractStoryFromFile(){
     std::string iffy = "/"+std::to_string(x_coordinate)+"/"+std::to_string(y_coordinate)+"/"+FlagSelector();
@@ -20,4 +27,4 @@ void Event::DisplayEvent(){
     ExtractStoryFromFile();
     std::cout << EventText << "\n";
     }
-void Event::SetFlags(std::string &flag){Flags.push_back(flag);}
+void Event::SetFlags(std::string &flag){FlagList.push_back(flag);}
