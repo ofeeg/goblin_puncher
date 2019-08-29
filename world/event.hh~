@@ -17,14 +17,18 @@ struct Flag{
     PRIORITY_LEVEL weight = PRIORITY_LEVEL::HIGHEST;
     Flag(std::string s) : tag(s){};
     };
+struct FlagPrioirtyQueue{
+    //fill me
+    }
 class Event{
     nlohmann::json Story;
     std::string Subdirectory, EventText;
+    std::vector<Flag> FlagQueue;
     std::vector<Flag> FlagList = {Flag("INITIAL FLAG")};
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
     void ExtractStoryFromFile();
-    std::string FlagSelector(const std::vector<Flag>& compare={});
+    std::string FlagSelector(const std::vector<Flag>& compare);
     public:
         Event(int x, int y, const nlohmann::json &jsonFile, bool z=true) : 
             x_coordinate(x), y_coordinate(y), Story(jsonFile), DeleteInitialFlag(z){};

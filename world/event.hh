@@ -1,7 +1,7 @@
 #include "../nlohmann/json.hpp"
 #include <fstream>
 #include <iostream>
-#include <queue>
+#include <utility>
 
 enum  class  PRIORITY_LEVEL: short{
     HIGHEST = 1,
@@ -17,9 +17,12 @@ struct Flag{
     PRIORITY_LEVEL weight = PRIORITY_LEVEL::HIGHEST;
     Flag(std::string s) : tag(s){};
     };
+
+
 class Event{
     nlohmann::json Story;
     std::string Subdirectory, EventText;
+    std::vector<Flag> FlagQueue;
     std::vector<Flag> FlagList = {Flag("INITIAL FLAG")};
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
