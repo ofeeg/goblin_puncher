@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <utility>
-//#include <queue>
+
 enum  class  PRIORITY_LEVEL: short{
     HIGHEST = 1,
     HIGH = 2,
@@ -22,7 +22,7 @@ struct Flag{
 class Event{
     nlohmann::json Story;
     std::string Subdirectory, EventText;
-    std::vector<Flag> FlagQueue;
+    std::vector<Flag*> FlagQueue;
     std::vector<Flag> FlagList = {Flag("INITIAL FLAG")};
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
@@ -37,7 +37,6 @@ class Event{
         void SortAndPopulateQueue(const std::vector<Flag>& compare);
         constexpr Flag& GetFlag(int n){
             if(n>0 && n<=FlagList.size()){
-            std::cout << &FlagList[n-1];
             return FlagList[n-1];
             }
             }

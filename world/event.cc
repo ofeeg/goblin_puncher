@@ -1,34 +1,35 @@
 #include "event.hh"
 
-void MoveFlagsIntoQueue(std::vector<Flag>& input, std::vector<Flag>& output){
+void MoveFlagsIntoQueue(std::vector<const Flag*>& input, std::vector<const Flag*>& output){
             for(auto& i : input){
                 output.push_back(i);
                 }
             }
 void Event::SortAndPopulateQueue(const std::vector<Flag>& compare){
     short count = 0;
-    std::vector<Flag> HighestFlags;
-    std::vector<Flag> HighFlags;
-    std::vector<Flag> NormalFlags;
-    std::vector<Flag> LowFlags;
-    std::vector<Flag> LowestFlags;
+    std::vector<const Flag*> HighestFlags;
+    std::vector<const Flag*> HighFlags;
+    std::vector<const Flag*> NormalFlags;
+    std::vector<const Flag*> LowFlags;
+    std::vector<const Flag*> LowestFlags;
     for(auto& i : compare){
-        if(!i.tag.compare(compare[count].tag)){ 
-        switch(i.weight){
+        const Flag* itr = &i;
+        if(!itr->tag.compare(compare[count].tag)){ 
+        switch(itr->weight){
             case PRIORITY_LEVEL::HIGHEST:
-                HighestFlags.push_back(i);
+                HighestFlags.push_back(itr);
                 break;
             case PRIORITY_LEVEL::HIGH:
-                HighFlags.push_back(i);
+                HighFlags.push_back(itr);
                 break;
             case PRIORITY_LEVEL::NORMAL:
-                NormalFlags.push_back(i);
+                NormalFlags.push_back(itr);
                 break;
             case PRIORITY_LEVEL::LOW:
-                LowFlags.push_back(i);
+                LowFlags.push_back(itr);
                 break;
             case PRIORITY_LEVEL::LOWEST:
-                LowestFlags.push_back(i);
+                LowestFlags.push_back(itr);
                 break;
                 }
                 }
@@ -44,7 +45,7 @@ void Event::SortAndPopulateQueue(const std::vector<Flag>& compare){
     
 std::string Event::FlagSelector(const std::vector<Flag>& compare={}){
     if(!FlagQueue.empty()){
-        std::string SelectedFlag = FlagQueue.front().tag;
+        std::string SelectedFlag = FlagQueue.front()->tag;
         FlagQueue.erase(FlagQueue.begin());
         return SelectedFlag;
         }
