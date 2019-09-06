@@ -1,12 +1,15 @@
 #include "event.hh"
 #include <iostream>
-
+/*void PrintTags(Event& test){
+     for(auto& i : test.FlagList){
+            std::cout << i.tag << ",";
+            }
+        }*/
 int main(){
     std::ifstream jsonfile("Story.json");
     const nlohmann::json Story = nlohmann::json::parse(jsonfile);
-    Event gg (0,0, Story);
+    Event gg (0,0, Story, false);
     Event ff (1,0, Story);
-    //gg.getFile()
     gg.DisplayEvent();
     ff.DisplayEvent();
     std::string flag = "SECOND FLAG";
@@ -14,7 +17,12 @@ int main(){
     ff.SetFlags(flag);
     ff.SetFlags(flag1);
     ff.DisplayEvent();
+    ff.SetFlagWeight(flag , PRIORITY_LEVEL::HIGH);
     ff.DisplayEvent();
-    //std::cout << gg;
+    ff.DisplayEvent();
+    gg.DisplayEvent();
+    //PrintTags(ff);
+    //PrintTags(gg);
+    std::vector<Flag*> Flags = {&ff.GetFlag(1)};     
     return 0;
     }

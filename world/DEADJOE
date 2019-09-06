@@ -1,0 +1,45 @@
+
+*** These modified files were found in JOE when it aborted on Thu Sep  5 18:03:35 2019
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+FlagList
+FlagList
+FlagList
+FlagList
+
+*** File '(Unnamed)'
+token
+Token
+\^Flags\$
+Flags
+Flags\*
+Flags\*
+Flags\*
+
+FlagLists \*
+Flagss\*
+
+*** File '(Unnamed)'
+event.cc
+map_test.cc
+map.hh
+map.cc
+event_test.cc
+event.hh
+event.cc
+map_test.cc
+map.hh
+map.cc
+event_test.cc
+event.hh
+event.cc
+map_test.cc
+map.hh
+map.cc
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc

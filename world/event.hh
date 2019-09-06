@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <utility>
-
+//#include <queue>
 enum  class  PRIORITY_LEVEL: short{
     HIGHEST = 1,
     HIGH = 2,
@@ -10,11 +10,11 @@ enum  class  PRIORITY_LEVEL: short{
     LOW = 4,
     LOWEST = 5
     };
-    
+      
 
 struct Flag{
     std::string tag;
-    PRIORITY_LEVEL weight = PRIORITY_LEVEL::HIGHEST;
+    PRIORITY_LEVEL weight = PRIORITY_LEVEL::NORMAL;
     Flag(std::string s) : tag(s){};
     };
 
@@ -33,7 +33,13 @@ class Event{
             x_coordinate(x), y_coordinate(y), Story(jsonFile), DeleteInitialFlag(z){};
         void DisplayEvent();
         void SetFlags(std::string &flag);
-        
+        void SetFlagWeight(const std::string &flag, PRIORITY_LEVEL weight);
+        void SortAndPopulateQueue(const std::vector<Flag>& compare);
+        constexpr Flag& GetFlag(int n){
+            if(n>0 && n<=FlagList.size()){
+            return FlagList[n-1];
+            }
+            }
     };
        
     

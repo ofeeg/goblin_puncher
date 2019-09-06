@@ -1,49 +1,38 @@
 #include "event.hh"
 
-void MoveFlagsIntoQueue(std::vector<Flag> input, std::vector<Flag> output){
+void MoveFlagsIntoQueue(std::vector<Flag>& input, std::vector<Flag>& output){
             for(auto& i : input){
-                output.push_back(std::move(i));
+                output.push_back(i);
                 }
             }
-std::string Event::FlagSelector(const std::vector<Flag>& compare={}){
-    
-    if(FlagQueue.empty()){
-        std::string SelectedFlag = FlagQueue.front().tag;
-        FlagQueue.erase(FlagQueue.begin());
-        return SelectedFlag;
-        }
-    for(auto& i : FlagList){
-        std::cout << i.tag << ",";
-        }
-    std::cout << "\n";
-    if(DeleteInitialFlag){
-        std::string InitialFlag = FlagList[0].tag;        
-        if(!InitialFlag.compare("INITIAL FLAG")){FlagList.erase(FlagList.begin()); DeleteInitialFlag = false; return InitialFlag;}
-        }
-        
-    if(!compare.empty()){
-        
-        short count = 0;
-        std::vector<Flag> HighestFlags;
-        std::vector<Flag> HighFlags;
-        std::vector<Flag> NormalFlags;
-        std::vector<Flag> LowFlags;
-        std::vector<Flag> LowestFlags;
-        for(auto& i : FlagList){
-            if(!i.tag.compare(compare[count].tag)){ 
-            switch(i.weight){
-                case PRIORITY_LEVEL::HIGHEST:
-                    HighestFlags.push_back(i);
-                case PRIORITY_LEVEL::HIGH:
-                    HighFlags.push_back(i);
-                case PRIORITY_LEVEL::NORMAL:
-                    NormalFlags.push_back(i);
-                case PRIORITY_LEVEL::LOW:
-                    LowFlags.push_back(i);
-                case PRIORITY_LEVEL::LOWEST:
-                    LowestFlags.push_back(i);
+void Event::SortAndPopulateQueue(const std::vector<Flag>& compare){
+    short count = 0;
+    std::vector<Flag> HighestFlags;
+    std::vector<Flag> HighFlags;
+    std::vector<Flag> NormalFlags;
+    std::vector<Flag> LowFlags;
+    std::vector<Flag> LowestFlags;
+    for(auto& i : compare){
+        if(!i.tag.compare(compare[count].tag)){ 
+        switch(i.weight){
+            case PRIORITY_LEVEL::HIGHEST:
+                HighestFlags.push_back(i);
+                break;
+            case PRIORITY_LEVEL::HIGH:
+                HighFlags.push_back(i);
+                break;
+            case PRIORITY_LEVEL::NORMAL:
+                NormalFlags.push_back(i);
+                break;
+            case PRIORITY_LEVEL::LOW:
+                LowFlags.push_back(i);
+                break;
+            case PRIORITY_LEVEL::LOWEST:
+                LowestFlags.push_back(i);
+                break;
+                }
+                }
             count++;
-            }
             }
         MoveFlagsIntoQueue(HighestFlags, FlagQueue);
         MoveFlagsIntoQueue(HighFlags, FlagQueue);
@@ -51,9 +40,33 @@ std::string Event::FlagSelector(const std::vector<Flag>& compare={}){
         MoveFlagsIntoQueue(LowFlags, FlagQueue);
         MoveFlagsIntoQueue(LowestFlags, FlagQueue);
         }
+        
+    
+std::string Event::FlagSelector(const std::vector<Flag>& compare={}){
+    if(!FlagQueue.empty()){
+        std::string SelectedFlag = FlagQueue.front().tag;
+        FlagQueue.erase(FlagQueue.begin());
+        return SelectedFlag;
+        }
+    if(DeleteInitialFlag){
+        std::string InitialFlag = FlagList[0].tag;        
+        if(!InitialFlag.compare("INITIAL FLAG")){
+            FlagList.erase(FlagList.begin()); 
+            DeleteInitialFlag = false; 
+            return InitialFlag;}
+        }
+    if(!compare.empty()){
+        FlagQueue.clear();
+        SortAndPopulateQueue(compare);
+        return FlagSelector();
         }
     else{
-        std::string SelectedFlag = FlagList[0].tag;
+        std::string InitialFlag = FlagList[0].tag;        
+        if(!InitialFlag.compare("INITIAL FLAG")){
+            std::string SelectedFlag = FlagList[0].tag;
+            return SelectedFlag;
+            }
+        std::string SelectedFlag = FlagList[1].tag;
         return SelectedFlag;
         }
     
@@ -63,8 +76,21 @@ void Event::ExtractStoryFromFile(){
     nlohmann::json::json_pointer poinr(iffy);
     EventText = Story.at(poinr);
     }
+
 void Event::DisplayEvent(){
     ExtractStoryFromFile();
     std::cout << EventText << "\n";
     }
 void Event::SetFlags(std::string &flag){FlagList.push_back(flag);}
+
+void Event::SetFlagWeight(const std::string &flag, PRIORITY_LEVEL weight){
+    for(auto& i : FlagList){
+        if(!i.tag.compare(flag)){
+            i.weight = weight;
+            }
+        FlagQueue.clear();
+        SortAndPopulateQueue(FlagList);
+        }
+    }
+
+        
