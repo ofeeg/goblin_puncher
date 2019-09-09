@@ -1,0 +1,11 @@
+World:
+	map/: rerpresented as a graph with coordinates using 4 a maximum of 4
+	directions per node.
+	
+	events/: each node will be called an event where a multitude of
+	things can happen, ion most cases there will be a sety of choices
+	and up to 4 of them will change the location of the player. others
+	will involve something misc. happening.
+	
+	log/: keeps track of events the players been to, and will  take note
+	of everything up to the players death.

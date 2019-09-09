@@ -82,7 +82,7 @@ void Event::DisplayEvent(){
     ExtractStoryFromFile();
     std::cout << EventText << "\n";
     }
-void Event::SetFlags(std::string &flag){FlagList.push_back(flag);}
+void Event::SetFlags(std::string &flag){FlagList.push_back(Flag(flag));}
 
 void Event::SetFlagWeight(const std::string &flag, PRIORITY_LEVEL weight){
     for(auto& i : FlagList){
@@ -90,7 +90,7 @@ void Event::SetFlagWeight(const std::string &flag, PRIORITY_LEVEL weight){
             i.weight = weight;
             }
         FlagQueue.clear();
-        SortAndPopulateQueue(FlagList);
+        SortAndPopulateQueue(FlagList); //might have to change this to make the generator
         }
     }
 

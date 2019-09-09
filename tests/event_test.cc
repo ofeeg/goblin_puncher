@@ -1,4 +1,4 @@
-#include "event.hh"
+#include "../world/event.hh"
 #include <iostream>
 /*void PrintTags(Event& test){
      for(auto& i : test.FlagList){
@@ -6,7 +6,7 @@
             }
         }*/
 int main(){
-    std::ifstream jsonfile("Story.json");
+    std::ifstream jsonfile("../world/Story.json");
     const nlohmann::json Story = nlohmann::json::parse(jsonfile);
     Event gg (0,0, Story, false);
     Event ff (1,0, Story);
@@ -17,8 +17,8 @@ int main(){
     ff.SetFlags(flag);
     ff.SetFlags(flag1);
     ff.DisplayEvent();
-    ff.DisplayEvent();
     ff.SetFlagWeight(flag , PRIORITY_LEVEL::HIGH);
+    ff.DisplayEvent();
     ff.DisplayEvent();
     gg.DisplayEvent();
     //PrintTags(ff);
