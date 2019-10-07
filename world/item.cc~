@@ -7,3 +7,4 @@ std::string Item::GetStats(){
         + "\n" + "ACC: " + std::to_string(GetACC()) + "\n" + "SPD: " + std::to_string(GetSPD())+ "\n";
     return Stats;
     }
+std::string Item::GetDesc(){return this->ItemDesc;}

@@ -1,5 +1,3 @@
-#ifndef FLAG
-#define FLAG
 #include <string>
 enum  class  PRIORITY_LEVEL: short{
     HIGHEST = 1,
@@ -15,4 +13,3 @@ struct Flag{
     PRIORITY_LEVEL weight = PRIORITY_LEVEL::NORMAL;
     Flag(std::string s) : tag(s){};
     };
-#endif 

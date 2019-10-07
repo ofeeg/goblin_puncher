@@ -1,7 +1,9 @@
 #include "../world/item.hh"
 
 int main(){
-    Item item = Item(0, 0, 0, 0, 0,0);
-    std::cout << item.GetName() << "\n"  /*<< item.GetDesc() << "\n"*/ << item.GetStats();
+    Item item = Item();
+    std::cout << item.GetName() << "\n"  << item.GetDesc() << "\n" << item.GetStats() << "\n" << 1+item.GetHP() << "\n";
+    Equipment testEq = Equipment();
+    std::cout << testEq.GetName() << "\n"  << testEq.GetDesc() << "\n" << testEq.GetStats() << "\n" << 1+testEq.GetHP();
     return 0;
     }

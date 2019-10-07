@@ -2,7 +2,6 @@
 #include "../nlohmann/json.hpp"
 #include <fstream>
 #include <iostream>
-#include <utility>
 
 
 
@@ -15,7 +14,7 @@ class Event{
     bool DeleteInitialFlag;
     int x_coordinate, y_coordinate;
     void ExtractStoryFromFile();
-    std::string FlagSelector(const std::vector<Flag>& compare);
+    std::string_view FlagSelector(const std::vector<Flag>& compare);
     public:
         Event(int x, int y, const nlohmann::json &jsonFile, bool z=true) : 
             x_coordinate(x), y_coordinate(y), Story(jsonFile), DeleteInitialFlag(z){};

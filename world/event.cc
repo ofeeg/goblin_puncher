@@ -1,7 +1,7 @@
 #include "event.hh"
 
 void MoveFlagsIntoQueue(std::vector<const Flag*>& input, std::vector<const Flag*>& output){
-            for(auto& i : input){
+            for(const auto& i : input){
                 output.push_back(i);
                 }
             }
