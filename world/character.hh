@@ -17,7 +17,7 @@ class Character{
     int spd;
     int acc;
 public:
-    Character(int HP=0,int MP=0, int STR=0,int DEF=0,int ACC=0,int SPD=0,std::vector<Item*> items={}, std::string name= "No Name", std::string species="None", std::string desc= "No Description") : CharName(name), CharSpecies(species),CharDesc(desc),Inv(items), str(STR), def(DEF), acc(ACC),spd(SPD),  hp(HP), mp(MP){}
+    Character(int HP=0,int MP=0, int STR=0,int DEF=0,int ACC=0,int SPD=0, std::string name= "No Name", std::string species="None", std::string desc= "No Description", std::vector<Item*> items={}) : CharName(name), CharSpecies(species),CharDesc(desc),Inv(items), str(STR), def(DEF), acc(ACC),spd(SPD),  hp(HP), mp(MP){}
     std::string GetName();
     std::string GetDesc();
     std::string GetSpecies();
@@ -30,8 +30,17 @@ public:
     virtual std::string GetInventory();
     std::string GetStats();
 };
-/*class Enemy: Character{
 
+/*struct Ability{
+    constexpr auto Name;
+    constexpr char ScaleType;
+    constexpr int ScaleDmg;
+    constexpr Ability(const std::string_view s, const char c, const int i) : Name(s), ScaleType(c), ScaleDmg(i){};
+    };
+*/    
+/*class Combatant : Character{
+    std::vector<std::string> Abilities
+      
 };*/
  
 

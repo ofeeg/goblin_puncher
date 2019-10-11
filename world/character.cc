@@ -10,6 +10,7 @@ std::string Character::GetStats(){
 std::string Character::GetDesc(){return this->CharDesc;};
 std::string Character::GetSpecies(){return this->CharSpecies;};
 std::string Character::GetInventory(){
+    //std::cout << "Empty?:" << this->Inv.empty();
     if(this->Inv.empty()){
         std::string s = "No Items";
         return s;
