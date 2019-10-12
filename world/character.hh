@@ -1,9 +1,13 @@
 #ifndef CHARACTER 
 #define CHARACTER
+#include "ability.hh"
 #include "item.hh" 
 #include <array>
 #include <vector>
 #include <string>
+
+
+
 
 class Character{
     std::string CharName;
@@ -31,13 +35,7 @@ public:
     std::string GetStats();
 };
 
-/*struct Ability{
-    constexpr auto Name;
-    constexpr char ScaleType;
-    constexpr int ScaleDmg;
-    constexpr Ability(const std::string_view s, const char c, const int i) : Name(s), ScaleType(c), ScaleDmg(i){};
-    };
-*/    
+    
 /*class Combatant : Character{
     std::vector<std::string> Abilities
       

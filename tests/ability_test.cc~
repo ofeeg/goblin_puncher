@@ -1,0 +1,10 @@
+#include "../world/ability.hh"
+#include <iostream>
+
+
+int main(){
+    Ability();
+    std::string s = "d";
+    Ability(s, 'i', 1000000000);
+    return 0;
+    }
