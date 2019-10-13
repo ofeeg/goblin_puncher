@@ -20,4 +20,18 @@ std::string Character::GetInventory(){
         InvString= InvString + "\n" + i->GetName();
         }
     return InvString;
-    };
+};
+std::string Combatant::GetAbilitiesAsStr(){
+    if(this->Abilities.first.empty() && Abilities.second.empty()){
+        std::string s = "No Abilities";
+        return s;
+    } 
+    std::string AbilityString = "";
+    for(Ability* i : this->Abilities.first){
+        AbilityString= AbilityString + "\n" + i->Name;
+    }
+    for(Ability* i : this->Abilities.second){
+        AbilityString= AbilityString + "\n" + i->Name;
+    }
+    return AbilityString;
+};
