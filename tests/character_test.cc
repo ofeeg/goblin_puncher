@@ -5,18 +5,28 @@ std::string d = "THIS IS A DUMMY";
 std::string a = "derp";
 std::string f = "deofaeofj THE";
 std::string g = "pop";
+
 Item dummy_item=Item(0,0,0,0,0,0, s, d);
 Item nothing=Item();
 Item nothing2=Item();
+
+Ability dummy_ability("DUMMY PASSIVE", TYPES::ATK, 100);
+Ability dummy_ability2("SHIN DUMMY", TYPES::ATK, 2000);
+Ability dummy_ability3("DUMMY ACTIVE", TYPES::DEF, 69);
+ 
+
 int main(){
     Character q = Character();
     std::vector<Item*>y_inv{&dummy_item, &nothing};
     std::cout << y_inv.empty();
     Character y = Character(0,0,0,0,0,0, a, f, g, y_inv);
     std::vector<Item*> o_inv{&nothing};
-    Combatant o = Combatant(0,0,0,0,0,0, a, f, g, o_inv);    
+    std::vector<Ability*> o_act{&dummy_ability3};
+    std::vector<Ability*> o_pas{&dummy_ability, &dummy_ability2};
+    Combatant o = Combatant(0,0,0,0,0,0, a, f, g, o_inv, o_pas, o_act);    
     std::cout << q.GetStats() << "\n" << q.GetSpecies() << "\n" << q.GetInventory() <<"\n";
     std::cout << y.GetStats() << "\n" << y.GetSpecies() << "\n" << y.GetInventory();
-    std::cout << o.GetStats() << "\n" << o.GetSpecies() << "\n" << o.GetInventory() << o.GetAbilitiesAsStr();
+    std::cout << o.GetStats() << "\n" << o.GetSpecies() << "\n" << o.GetInventory() << "\n" << o.GetAbilitiesAsStr() << "\n" << o.GetAbility(dummy_ability.Name, PASSIVE)->ScaleDmg + o.GetSTR() + o.GetAbility(dummy_ability3.Name, ACTIVE)->ScaleDmg;
+    std::cout << "\n" << o.GetAbility(dummy_ability3.Name, PASSIVE)->Name;
     return 0;
     }

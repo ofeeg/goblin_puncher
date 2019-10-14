@@ -2,6 +2,16 @@
 #define ABILITY
 #include <string> 
 
+const bool PASSIVE = 0;
+const bool ACTIVE = 1; 
+enum TYPES: char{
+    INT = 'i',
+    ATK = 'a',
+    DEF = 'd',
+    SPD = 's',
+    };
+    
+    
 struct Ability{
     const std::string Name;
     const char ScaleType;

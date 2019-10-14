@@ -2,7 +2,8 @@
 #define ABILITY
 #include <string> 
 
-
+const bool PASSIVE = false;
+const bool ACTIVE = true; 
 enum TYPES: char{
     INT = 'i',
     ATK = 'a',

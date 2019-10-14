@@ -1,4 +1,7 @@
 #include "character.hh"
+
+Ability not_found("ABILITY NOT FOUND", TYPES::ATK, 0);
+Ability* const NOTFOUND = &not_found;
 std::string Character::GetName(){return this->CharName;};
 std::string Character::GetStats(){
 
@@ -10,7 +13,6 @@ std::string Character::GetStats(){
 std::string Character::GetDesc(){return this->CharDesc;};
 std::string Character::GetSpecies(){return this->CharSpecies;};
 std::string Character::GetInventory(){
-    //std::cout << "Empty?:" << this->Inv.empty();
     if(this->Inv.empty()){
         std::string s = "No Items";
         return s;
@@ -21,6 +23,8 @@ std::string Character::GetInventory(){
         }
     return InvString;
 };
+
+
 std::string Combatant::GetAbilitiesAsStr(){
     if(this->Abilities.first.empty() && Abilities.second.empty()){
         std::string s = "No Abilities";
@@ -34,4 +38,22 @@ std::string Combatant::GetAbilitiesAsStr(){
         AbilityString= AbilityString + "\n" + i->Name;
     }
     return AbilityString;
+};
+
+Ability* Combatant::GetAbility(std::string name, const bool abl_type){
+    if (abl_type){
+        for(Ability* i : this->Abilities.second){
+            if(!i->Name.compare(name)){
+                return i;
+                }
+            }
+        return NOTFOUND;
+        }
+    
+    for(Ability* i : this->Abilities.first){
+        if(!i->Name.compare(name)){
+            return i;
+            }
+            return NOTFOUND;
+    }
 };
