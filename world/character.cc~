@@ -1,7 +1,8 @@
 #include "character.hh"
 
 Ability not_found("ABILITY NOT FOUND", TYPES::ATK, 0);
-Ability* const NOTFOUND = &not_found
+Ability* const NOTFOUND = &not_found;
+
 std::string Character::GetName(){return this->CharName;};
 std::string Character::GetStats(){
 
@@ -56,4 +57,26 @@ Ability* Combatant::GetAbility(std::string name, const bool abl_type){
             }
             return NOTFOUND;
     }
+};
+
+std::string Combatant::GetActiveAbilities(){
+    if(this->Abilities.second.empty()){
+        std::string s = "(None)";
+        return s;
+    std::string AbilityString;
+    for(Ability* i : this->Abilities.second){
+        AbilityString = AbilityString + i->Name;
+        }
+    return AbilityString;
+};
+
+std::string Combatant::GetPassiveAbilities(){
+    if(this->Abilities.first.empty()){
+        std::string s = "(None)";
+        return s;
+    std::string AbilityString;
+    for(Ability* i : this->Abilities.first){
+        AbilityString = AbilityString + i->Name;
+        }
+    return AbilityString;
 };

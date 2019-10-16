@@ -6,7 +6,7 @@ std::string a = "derp";
 std::string f = "deofaeofj THE";
 std::string g = "pop";
 
-Item dummy_item=Item(0,0,0,0,0,0, s, d);
+Item dummy_item=Item(0,0,0,0,0,0,'0', g,  s, d);
 Item nothing=Item();
 Item nothing2=Item();
 
@@ -26,7 +26,10 @@ int main(){
     Combatant o = Combatant(0,0,0,0,0,0, a, f, g, o_inv, o_pas, o_act);    
     std::cout << q.GetStats() << "\n" << q.GetSpecies() << "\n" << q.GetInventory() <<"\n";
     std::cout << y.GetStats() << "\n" << y.GetSpecies() << "\n" << y.GetInventory();
-    std::cout << o.GetStats() << "\n" << o.GetSpecies() << "\n" << o.GetInventory() << "\n" << o.GetAbilitiesAsStr() << "\n" << o.GetAbility(dummy_ability.Name, PASSIVE)->ScaleDmg + o.GetSTR() + o.GetAbility(dummy_ability3.Name, ACTIVE)->ScaleDmg;
+    std::cout << o.GetStats() << "\n" << o.GetSpecies() << "\n" << o.GetInventory() << 
+        "\n" << o.GetAbilitiesAsStr() << "\n" << o.GetAbility(dummy_ability.Name, PASSIVE)->ScaleDmg + o.GetSTR() 
+        + o.GetAbility(dummy_ability3.Name, ACTIVE)->ScaleDmg << o.GetEquippedItems();
     std::cout << "\n" << o.GetAbility(dummy_ability3.Name, PASSIVE)->Name;
+    std::cout << "\n" << o.GetActiveAbilities() << "\n" << o.GetPassiveAbilities();
     return 0;
     }
