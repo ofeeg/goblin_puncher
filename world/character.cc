@@ -19,13 +19,29 @@ std::string Character::GetInventory(){
         return s;
         } 
     std::string InvString = "";
-    for(Item*& i : this->Inv){
+    for(Item* i : this->Inv){
         InvString= InvString + "\n" + i->GetName();
         }
     return InvString;
 };
 
 
+
+void Combatant::Equip(Item*& equip){
+    switch(equip->GetTypeCh()){
+    case 'w':this->Equipment[0] = equip; break;
+    case 'a':this->Equipment[1] = equip; break;
+    case 's':
+        if(this->Equipment[2] == nullptr){
+            this->Equipment[2] =equip;
+            break;
+        }
+        else{
+            this->Equipment[3]= equip;
+            break;
+        }
+    }
+}; 
 std::string Combatant::GetAbilitiesAsStr(){
     if(this->Abilities.first.empty() && Abilities.second.empty()){
         std::string s = "No Abilities";
@@ -66,7 +82,7 @@ std::string Combatant::GetActiveAbilities(){
         }
     std::string AbilityString;
     for(Ability* i : this->Abilities.second){
-        AbilityString = AbilityString + i->Name;
+        AbilityString = AbilityString + "\n" + i->Name;
         }
     return AbilityString;
 };
@@ -78,7 +94,21 @@ std::string Combatant::GetPassiveAbilities(){
         }
     std::string AbilityString;
     for(Ability* i : this->Abilities.first){
-        AbilityString = AbilityString + i->Name;
+        AbilityString = AbilityString + "\n" + i->Name;
         }
     return AbilityString;
 };
+
+std::string Combatant::GetEquippedItems(){
+    std::string equips="Equipment:";
+    for(Item* i : this->Equipment){
+        if(i != nullptr){
+            equips = equips + "\n" + i->GetName();
+            }
+        else{
+            equips = equips + "\n" +  "None";
+        }
+    }
+    return equips;
+};
+    

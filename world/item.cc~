@@ -1,6 +1,16 @@
 #include "item.hh"
-
+std::string Item::GetType(){
+    const char n = this->EquipType;
+    std::string s;
+    switch(n) {
+        case 'w': s="Weapon"; return s;
+        case 's': s="Accessory"; return s;
+        case 'a': s="Armor"; return s;
+        default: s="Consumable"; return s;
+        }
+}; 
 std::string Item::GetName(){return this->ItemName;};
+
 std::string Item::GetStats(){
 
     std::string Stats =  GetName() + "\n" +  GetDesc() + "\n" + GetType() + "\n" + GetEff() + "\n" +
@@ -10,5 +20,5 @@ std::string Item::GetStats(){
     return Stats;
     }
 std::string Item::GetDesc(){return this->ItemDesc;}
-std::string ITem::GetEff(){return this->ItemEffect;}
-std::string Item::GetType(){return this->EquipType;}
+std::string Item::GetEff(){return this->ItemEffect;}
+

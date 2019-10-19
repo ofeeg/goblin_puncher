@@ -11,7 +11,7 @@ enum EQUIP_TYPES:  const char{
     WEAPON = 'w',
     ARMOR = 'a',
     ACCESSORY = 's',
-    } 
+    }; 
 class Item{
     const std::string ItemName;
     const std::string ItemDesc;

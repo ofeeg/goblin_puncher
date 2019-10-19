@@ -1,4 +1,6 @@
 #include "item.hh"
+
+char Item::GetTypeCh(){return this->EquipType;};
 std::string Item::GetType(){
     const char n = this->EquipType;
     std::string s;
@@ -18,7 +20,7 @@ std::string Item::GetStats(){
         "STR: " + std::to_string(GetSTR()) + "\n" + "DEF: " + std::to_string(GetDEF())
         + "\n" + "ACC: " + std::to_string(GetACC()) + "\n" + "SPD: " + std::to_string(GetSPD())+ "\n";
     return Stats;
-    }
+    };
 std::string Item::GetDesc(){return this->ItemDesc;}
 std::string Item::GetEff(){return this->ItemEffect;}
 

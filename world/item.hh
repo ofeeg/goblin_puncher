@@ -32,6 +32,7 @@ public:
         std::string GetDesc();
         std::string GetEff();
         std::string GetType();
+        char GetTypeCh();
         constexpr int GetHP(){return this->hp;};
         constexpr int GetMP(){return this->mp;};
         constexpr int GetSTR(){return this->str;};
