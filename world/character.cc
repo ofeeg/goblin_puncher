@@ -73,6 +73,7 @@ Ability* Combatant::GetAbility(std::string name, const bool abl_type){
             }
             return NOTFOUND;
     }
+    return NOTFOUND;
 };
 
 std::string Combatant::GetActiveAbilities(){
