@@ -1,7 +1,0 @@
-{
-   
-    "0" : {"0" : {"INITIAL FLAG" : "hello"}, "1" : "efefe"},
-    "1" : {"0" : {"INITIAL FLAG" : "goodbye","SECOND FLAG" : "WOT"}, "1" : "ultimate"},
-     "hello" : "Hello World!",
-    "goodbye" : "Fare thee well."
-}
