@@ -1,0 +1,7 @@
+#include "character.hh"
+#include "item.hh"
+#include "map.hh"
+
+class World{
+  Map WorldMap;
+  

@@ -1,4 +1,6 @@
 #include "event.hh"
+std::ifstream jsonfile("../world/Story.json");
+nlohmann::json Story = nlohmann::json::parse(jsonfile);
 
 void MoveFlagsIntoQueue(std::vector<const Flag*>& input, std::vector<const Flag*>& output){
             for(const auto& i : input){

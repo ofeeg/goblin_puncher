@@ -5,9 +5,8 @@
             std::cout << i.tag << ",";
             }
         }*/
+
 int main(){
-    std::ifstream jsonfile("../world/Story.json");
-    const nlohmann::json Story = nlohmann::json::parse(jsonfile);
     Event gg (0,0, Story, false);
     Event ff (1,0, Story);
     gg.DisplayEvent();

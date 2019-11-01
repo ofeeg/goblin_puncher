@@ -5,4 +5,5 @@ int main(){
     gg.PlayEvent(0,1);
     gg.PlayEvent(1,1);
     gg.PlayEvent(1,0);
-    return 0;}
+    return 0;
+}
