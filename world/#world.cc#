@@ -13,7 +13,6 @@ std::vector<int>* World::GetRegion(std::string r_name){
       return wanted;
     }
   }
-  return nullptr;
 }
       
 
