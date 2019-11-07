@@ -7,8 +7,8 @@ int main(){
   World h(1,1, h_regions);
   World b(1,1);
   h.AccessLocation(0,0);
-  std::vector<int> stuff = *h.GetRegion("h space");
+  //std::vector<int> stuff = *h.GetRegion("h space");
   std::cout << &h ;//<< " " << &b;
-  std::cout << "\n" << stuff[1];
+  std::cout << "\n" << (*h.GetRegion("h space"))[1];//stuff[1];
   return 0;
 }
