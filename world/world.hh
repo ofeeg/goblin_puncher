@@ -35,6 +35,8 @@ public:
   World(int x=1, int y=1, std::vector<partition> r_list={}, std::vector<enemy_partition> e_list={}, std::vector<item_partition> i_list={}) :  WorldMap(Map(x,y)), EnemyLists(e_list), RegionList(r_list), ItemDropLists(i_list){}
   void AccessLocation(int x, int y);
   std::vector<int>* GetRegion(std::string r_name);
+  std::vector<Combatant>* GetEnemies(std::string r_name);
+  std::vector<Item>* GetItems(std::string r_name);
 };
 
 #endif
