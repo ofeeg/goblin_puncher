@@ -2,21 +2,30 @@
 #define BATTLE
 #include "../character.hh"
 #include <iostream>
-    
+#include <stdexcept>    
 
 
 class BattleScene{
   std::array<Combatant, 4> Enemies;
   std::array<Combatant, 4> Player;
-
 public:
   BattleScene(std::array<Combatant, 4>& e_list, std::array<Combatant, 4> p_list) : Enemies(e_list), Player(p_list){}
   constexpr int DamageCalculation(int offense, int defense, int abl_dmg=0){
     int dmg = ((offense*2)) - (defense*3)/2 + abl_dmg;
     return dmg;
   }
-};
-
+  void InitPassive(Combatant& a){
+    if(!(a.Abilities.first.empty())){
+      for(Ability*  i : a.Abilities.first){
+	if(i->ScaleType = TYPES::PAS){
+	  std::cout << "Doing something unique \n";
+	}
+	else{
+	  std::cout << i->ScaleDamage;
+	}
+      }
+    }
+  };
 
 
 

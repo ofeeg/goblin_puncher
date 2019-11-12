@@ -9,6 +9,7 @@ enum TYPES: char{
     ATK = 'a',
     DEF = 'd',
     SPD = 's',
+    PAS = 'x' //ability does something unique
     };
     
     
