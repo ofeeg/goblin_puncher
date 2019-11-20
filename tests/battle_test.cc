@@ -7,6 +7,7 @@ void InitBattle(BattleScene& bs){
   bool battling = 1;
   
   while(battling){
+    
     char i;
     std::cin >> i;
     switch(i){
