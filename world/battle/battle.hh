@@ -14,18 +14,8 @@ public:
     int dmg = ((offense*2)) - (defense*3)/2 + abl_dmg;
     return dmg;
   }
-  void InitPassive(Combatant& a){
-    if(!(a.Abilities.first.empty())){
-      for(Ability*  i : a.Abilities.first){
-	if(i->ScaleType = TYPES::PAS){
-	  std::cout << "Doing something unique \n";
-	}
-	else{
-	  std::cout << i->ScaleDamage;
-	}
-      }
-    }
-  };
+  void InitPassive(Combatant& a);
+};
 
 
 

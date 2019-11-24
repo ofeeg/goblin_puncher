@@ -113,12 +113,12 @@ std::string Combatant::GetEquippedItemsAsStr(){
     return equips;
 };
     
-const std::vector<Ability*>* Combatant::GetActiveAbilities(){
+std::vector<Ability*>* Combatant::GetActiveAbilities(){
   return &this->Abilities.second;
 }
 
 
-const std::vector<Ability*>* Combatant::GetPassiveAbilities(){
+std::vector<Ability*>* Combatant::GetPassiveAbilities(){
   return &this->Abilities.second;
 }
 

@@ -39,16 +39,18 @@ public:
 
     
 class Combatant :public Character{
-    const std::pair<std::vector<Ability*>, std::vector<Ability*>> Abilities; //first for passive, second for active
+    std::pair<std::vector<Ability*>, std::vector<Ability*>> Abilities; //first for passive, second for active
     std::array<Item*, 4> Equipment{};
     public:
         Combatant(int HP=0,int MP=0, int STR=0,int DEF=0,int ACC=0,int SPD=0, std::string name= "No Name", std::string species="None", std::string desc= "No Description", std::vector<Item*> items={},std::vector<Ability*> passive={}, std::vector<Ability*> active={}) : Character(HP,MP,STR,DEF,ACC,SPD,name, species, desc, items),Abilities(std::make_pair(passive, active)){}
         void Equip(Item*& equip);
         std::string GetAbilitiesAsStr();
         Ability* GetAbility(std::string name, const bool abl_type);
-        std::string GetActiveAbilities();
-        std::string GetPassiveAbilities();
-        std::string GetEquippedItems();
+        std::string GetActiveAbilitiesAsStr();
+        std::string GetPassiveAbilitiesAsStr();
+        std::string GetEquippedItemsAsStr();
+  const std::vector<Ability*>* GetPassiveAbilities();
+  const std::vector<Ability*>* GetActiveAbilities();
 };
 
  

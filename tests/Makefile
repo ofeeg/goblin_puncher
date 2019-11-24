@@ -27,6 +27,11 @@ ITEM_TSRC = item_test.cc
 ITEM_COBJ = $(ITEM_CSRC:.cc=.o)
 ITEM_TOBJ = $(ITEM_TSRC:.cc=.o)
 ITEM_EXE = item_test
+BATTLE_CSRC = ../world/battle/battle.cc
+BATTLE_TSRC = battle_test.cc
+BATTLE_COBJ = $(BATTLE_CSRC:.cc=.o)
+BATTLE_TOBJ = $(BATTLE_TSRC:.cc=.o)
+BATTLE_EXE = battle_test
 
 
 .PHONY : all
@@ -43,10 +48,12 @@ $(MAP_EXE) : $(MAP_COBJ) $(MAP_TOBJ)
 	$(CC) $^ -o $@
 $(ABILT_EXE) : $(ABILT_COBJ) $(ABILT_TOBJ)
 	$(CC) $(ABILT_TOBJ) -o $@
+$(BATTL_EXE) : $(BATTL_COBJ) $(BATTL_TOBJ)
+	$(CC) $(BATTL_TOBJ) -o $@
 
 .cc.o:
 	$(CC) $(CFLAGS) $< -o $@
 
 
 clean :
-	$(RM) *.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE)
+	$(RM) *.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE) $(BATTLE_EXE)
