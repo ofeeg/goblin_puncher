@@ -7,7 +7,7 @@ void InitBattle(BattleScene& bs){
   bool battling = 1;
   
   while(battling){
-    
+    bs.SetTurnOrder();
     char i;
     std::cin >> i;
     switch(i){

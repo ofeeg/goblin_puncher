@@ -1,0 +1,36 @@
+#ifndef BATTLE
+#define BATTLE
+#include "../character.hh"
+#include <iostream>
+#include <stdexcept>    
+
+struct TurnQueue{
+  std::vector<Combatant*> TurnOrder;
+  void EnqueueCom(Combatant& c){
+    bool filled = 1;
+    count  = 0;
+    while(filled){
+      if
+      
+      
+    
+
+
+class BattleScene{
+  std::array<Combatant, 4> Enemies;
+  std::array<Combatant, 4> Player;
+  //std::vector<Combatant> TurnStack;
+public:
+  BattleScene(std::array<Combatant, 4>& e_list, std::array<Combatant, 4> p_list) : Enemies(e_list), Player(p_list){}
+  constexpr int DamageCalculation(int offense, int defense, int abl_dmg=0){
+    int dmg = ((offense*2)) - (defense*3)/2 + abl_dmg;
+    return dmg;
+  }
+  void SetTurnOrder();
+  void InitPassive(Combatant& a);
+};
+
+
+
+
+#endif
