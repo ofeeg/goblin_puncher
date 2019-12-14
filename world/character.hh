@@ -49,8 +49,8 @@ class Combatant :public Character{
         std::string GetActiveAbilitiesAsStr();
         std::string GetPassiveAbilitiesAsStr();
         std::string GetEquippedItemsAsStr();
-  const std::vector<Ability*>* GetPassiveAbilities();
-  const std::vector<Ability*>* GetActiveAbilities();
+  const std::vector<Ability*> GetPassiveAbilities();
+  const std::vector<Ability*> GetActiveAbilities();
 };
 
  

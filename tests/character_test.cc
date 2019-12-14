@@ -32,7 +32,7 @@ int main(){
         + o.GetAbility(dummy_ability3.Name, ACTIVE)->ScaleDmg <<"\n" << o.GetEquippedItemsAsStr();
     std::cout << "\n" << o.GetAbility(dummy_ability3.Name, PASSIVE)->Name;
     std::cout << "\n" << o.GetActiveAbilitiesAsStr() << "\n" << o.GetPassiveAbilitiesAsStr();
-    const std::vector<Ability*>* dcdscd = o.GetPassiveAbilities();
+    const std::vector<Ability*> dcdscd = o.GetPassiveAbilities();
     std::cout << &dcdscd;
     return 0;
     }

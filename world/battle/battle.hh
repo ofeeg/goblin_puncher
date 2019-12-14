@@ -6,41 +6,45 @@
 
 
 struct TurnQueue{
-  const Combatant EMPTY = Combatant();
-  std::vector<Combatant*> Order{EMPTY};
+  Combatant EMPTY = Combatant();
+  std::vector<Combatant*> Order{&EMPTY};
   inline void enqueue(Combatant& c){
     bool filled = 1;
     unsigned short index = 0;
+    Combatant* ptr = &c;
     while(filled){
-      if(Order[index].GetName().compare(EMPTY.GetName())){
-	Order[index] = &c;
+      if(!Order[index]->GetName().compare(EMPTY.GetName())){
+	Order[index] = ptr;
 	Order.push_back(&EMPTY);
 	filled = 0;
       }
-      index++
-	}
+      index++;
+    }
   }
   inline Combatant dequeue(){
-    if(Order.front()->GetName().compare(EMPTY.GetName())){
+    if(!Order.front()->GetName().compare(EMPTY.GetName())){
       throw std::runtime_error("Empty queue, cannot dequeue");
     }
     Combatant* tmp;
     Combatant return_val = *Order.front();
     bool IsCurrentTurnHandled = 0;
     short index  = 0;
-    for(Combatant* it; it != Order.at(Order.size()-2)){
+    for(Combatant* it : Order){
+      if( it == Order.at(Order.size()-2)){
+	break;
+      }
       if(!IsCurrentTurnHandled){
-	tmp = *Order.at(Order.size()-2);
+	tmp = Order.at(Order.size()-2);
 	Order.at(Order.size()-2) = it;
 	IsCurrentTurnHandled = 1;
       }
       else{
 	Order.at(index) = it;
-	index++;
+	index = ++index;
       }
     }
-    Order.at(Order.size()-3) = *tmp;
-    return return_value;
+    Order.at(Order.size()-3) = tmp;
+    return return_val;
   }
 };
     

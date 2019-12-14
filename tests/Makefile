@@ -27,20 +27,20 @@ ITEM_TSRC = item_test.cc
 ITEM_COBJ = $(ITEM_CSRC:.cc=.o)
 ITEM_TOBJ = $(ITEM_TSRC:.cc=.o)
 ITEM_EXE = item_test
-BATTLE_CSRC = ../world/battle/battle.cc
+BATTLE_CSRC = ../world/battle/battle.cc ../world/character.cc ../world/item.cc
 BATTLE_TSRC = battle_test.cc
 BATTLE_COBJ = $(BATTLE_CSRC:.cc=.o)
 BATTLE_TOBJ = $(BATTLE_TSRC:.cc=.o)
 BATTLE_EXE = battle_test
-BATTLE_CSRC = ../world/battle/battle.cc #replace battle  with world
-BATTLE_TSRC = battle_test.cc
-BATTLE_COBJ = $(BATTLE_CSRC:.cc=.o)
-BATTLE_TOBJ = $(BATTLE_TSRC:.cc=.o)
-BATTLE_EXE = battle_test
+#BATTLE_CSRC = ../world/battle/battle.cc #replace battle  with world
+#BATTLE_TSRC = battle_test.cc
+#BATTLE_COBJ = $(#BATTLE_CSRC:.cc=.o)
+#BATTLE_TOBJ = $(#BATTLE_TSRC:.cc=.o)
+#BATTLE_EXE = battle_test
 
 .PHONY : all
 
-all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE)
+all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE) $(BATTLE_EXE)
 
 $(EVENT_EXE) : $(EVENT_COBJ) $(EVENT_TOBJ)
 	$(CC) $^ -o $@
@@ -52,10 +52,10 @@ $(MAP_EXE) : $(MAP_COBJ) $(MAP_TOBJ)
 	$(CC) $^ -o $@
 $(ABILT_EXE) : $(ABILT_COBJ) $(ABILT_TOBJ)
 	$(CC) $(ABILT_TOBJ) -o $@
-$(BATTL_EXE) : $(BATTL_COBJ) $(BATTL_TOBJ)
-	$(CC) $(BATTL_TOBJ) -o $@
+$(BATTLE_EXE) : $(BATTLE_COBJ) $(BATTLE_TOBJ)
+	$(CC) $^ -o $@
 $(WORLD_EXE) : $(WORLD_COBJ) $(WORLD_TOBJ)
-	$(CC) $(WORLD_TOBJ) -o $@
+	$(CC) $^ -o $@
 
 .cc.o:
 	$(CC) $(CFLAGS) $< -o $@
