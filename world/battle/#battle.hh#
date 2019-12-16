@@ -16,7 +16,7 @@ struct TurnQueue{
       if(!Order[index]->GetName().compare(EMPTY.GetName())){
 	Order[index] = ptr;
 	Order.push_back(&EMPTY);
-	std::cout <<  "Queued: " << Order[index]->GetName() << "\n" << std::endl;
+	//std::cout <<  "Queued: " << Order[index]->GetName() << "\n" << std::endl;
 	filled = 0;
       }
       index++;
@@ -46,9 +46,6 @@ struct TurnQueue{
       }
     }
     Order.at(Order.size()-3) = tmp;
-    for(auto& i : Order){
-      std::cout << i->GetName() << std::endl;
-    }
     return return_val;
   }
 };

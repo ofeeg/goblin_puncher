@@ -36,14 +36,19 @@ std::array<unsigned short, 4> SortCombatants(std::array<Combatant, 4>& i){
 }
 
 void CompareRemains(const std::array<unsigned short, 4>& arr1, const std::array<unsigned short, 4>& arr2, std::array<Combatant, 4>& arr3, std::array<Combatant,4>& arr4, TurnQueue& turns, const uint16_t& index){
-  for(uint16_t x = index+1; x<4; x++){
+  for(uint16_t x = index+1; x<4; ++x){
     if(arr1[index] >= arr2[x]){
-      turns.enqueue(arr3[arr1[index]]);
+      if(arr3[arr1[index]].GetName().compare(Combatant().GetName())){
+	turns.enqueue(arr3[arr1[index]]);
+	std::cout << "Breaking" << std::endl;
+      }
       break;
     }
     if(x == 3){
       for(uint16_t o = index; o < 4; ++o){
-	turns.enqueue(arr4[arr2[o]]);
+	if(arr4[arr2[o]].GetName().compare(Combatant().GetName())){
+	  turns.enqueue(arr4[arr2[o]]);
+	}
       }
     }
   }
@@ -54,15 +59,20 @@ void BattleScene::SetTurnOrder(){
   std::array<unsigned short , 4> E_arr = SortCombatants(this->Enemies);
   //unsigned short* tmp;
   for(uint16_t i = 0; i < 4; ++i){
-    if(E_arr[i] >= P_arr[i]){
-      this->Turns.enqueue(this->Enemies[E_arr[i]]);
-      CompareRemains(P_arr, E_arr, this->Player, this->Enemies, this->Turns, i);
+    if(Enemies[E_arr[i]].GetSPD() >= Player[P_arr[i]].GetSPD()){
+      if(Enemies[E_arr[i]].GetName().compare(Combatant().GetName())){
+	this->Turns.enqueue(this->Enemies[E_arr[i]]);
+	CompareRemains(P_arr, E_arr, this->Enemies, this->Player, this->Turns, i);
+      }
     }
     else{
-      this->Turns.enqueue(this->Player[P_arr[i]]);
-      CompareRemains(E_arr, P_arr, this->Enemies, this->Player,this->Turns,  i);
+      if(Player[P_arr[i]].GetName().compare(Combatant().GetName())){
+	this->Turns.enqueue(this->Player[P_arr[i]]);
+	CompareRemains(E_arr, P_arr, this->Player, this->Enemies,this->Turns,  i);
+      }
     }
   }
+  std::cout << this->Turns.Order.size() << std::endl;
 }
 
 	  
