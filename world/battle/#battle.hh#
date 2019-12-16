@@ -16,7 +16,7 @@ struct TurnQueue{
       if(!Order[index]->GetName().compare(EMPTY.GetName())){
 	Order[index] = ptr;
 	Order.push_back(&EMPTY);
-	//std::cout <<  "Queued: " << Order[index]->GetName() << "\n" << std::endl;
+	//0std::cout <<  "Queued: " << Order[index]->GetName() << "\n" << std::endl;
 	filled = 0;
       }
       index++;
