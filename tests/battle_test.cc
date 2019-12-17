@@ -3,9 +3,10 @@
 std::string p_name="I have 10  SPD";
 std::string p_desc= "Yep.";
 std::string e_name="I  have 5 SPD";
+Ability a(p_desc, 'a',100);
 std::vector<Item*>  p_item={};
 std::vector<Ability*> p_no_abl={};
-
+std::vector<Ability*> p_abl={&a};
 
 std::array<Combatant, 4> Enemies{Combatant(100, 10, 10,10,10,5,e_name, p_desc, p_desc,p_item, p_no_abl, p_no_abl)};
 std::array<Combatant, 4> Player{Combatant(100, 10, 10,10,10,10,p_name, p_desc, p_desc,p_item, p_no_abl, p_no_abl)};
