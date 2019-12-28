@@ -16,6 +16,7 @@ int main(){
       break;
     case 2:
       gg.SetPartyMember(jj);
+      std::cout << gg.GetPartyAsStr() << std::endl;
       break;
     default:
       std::cout << input;

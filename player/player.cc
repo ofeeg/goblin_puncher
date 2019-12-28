@@ -4,6 +4,14 @@ void Player::SetPartyMember(Combatant* party_member){
   party.push_back(party_member);
 }
 
+std::string Player::GetPartyAsStr(){
+  std::string val = "";
+  for(auto& i : party){
+    val += " " + i->GetName();
+  }
+  return val;
+}
+
 uint16_t Player::GetInput(){
   bool invalid = 1;
   uint16_t i;
