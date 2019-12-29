@@ -4,6 +4,10 @@ void Player::SetPartyMember(Combatant* party_member){
   party.push_back(party_member);
 }
 
+void Player::GiveItem(Item* item){
+  this->Inv.push_back(item);
+}
+
 std::string Player::GetPartyAsStr(){
   std::string val = "";
   for(auto& i : party){

@@ -11,6 +11,7 @@ public:
   uint16_t GetInput();
   void SetPartyMember(Combatant* party_member);
   std::string GetPartyAsStr();
+  void GiveItem(Item* item);
   //std::string  GetName(){return PlayerName;}        
 };
 #endif
