@@ -12,6 +12,7 @@ public:
   void SetPartyMember(Combatant* party_member);
   std::string GetPartyAsStr();
   void GiveItem(Item* item);
+  void GiveAbility(Ability& abl, Combatant* pers);
   //std::string  GetName(){return PlayerName;}        
 };
 #endif

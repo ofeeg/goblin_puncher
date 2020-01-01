@@ -7,6 +7,10 @@ void Player::SetPartyMember(Combatant* party_member){
 void Player::GiveItem(Item* item){
   this->Inv.push_back(item);
 }
+void Player::GiveAbility(Ability& abl, Combatant* pers){
+  if(abl.AbilityType){pers.Abilities.first.push_back(&abl); }
+  else{pers.Abilities.second.push_back(&abl);}
+}
 
 std::string Player::GetPartyAsStr(){
   std::string val = "";

@@ -1,8 +1,9 @@
 #include "../player/player.hh"
 bool i = 1;
 Item junk = Item();
+Ability trash = Ability();
 std::string j_name = "onf";
-std::vector<Ability*> j_abl{};
+std::vector<Ability*> j_abl{&trash};
 std::vector<Item*> j_inv{&junk};
 
 int main(){
@@ -23,6 +24,12 @@ int main(){
     case 3:
       gg.GiveItem(j_inv[0]);
       std::cout << gg.GetInventory() << std::endl;
+      break;
+    case 4:
+      for(auto& i : gg.GetActiveAbilities()){
+	std::cout << i->Name << "\n";
+      }
+      gg.GiveAbility(ALL_ABILITIES[4]);
       break;
     default:
       std::cout << input;
