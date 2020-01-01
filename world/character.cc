@@ -1,6 +1,6 @@
 #include "character.hh"
 
-Ability not_found("ABILITY NOT FOUND", TYPES::ATK, 0);
+Ability not_found(0, "ABILITY NOT FOUND", TYPES::ATK, 0);
 Ability* const NOTFOUND = &not_found;
 
 std::string Character::GetName(){return this->CharName;};
@@ -119,6 +119,6 @@ const std::vector<Ability*> Combatant::GetActiveAbilities(){
 
 
 const std::vector<Ability*> Combatant::GetPassiveAbilities(){
-  return this->Abilities.second;
+  return this->Abilities.first;
 }
 

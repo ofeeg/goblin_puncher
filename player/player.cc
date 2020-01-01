@@ -7,9 +7,9 @@ void Player::SetPartyMember(Combatant* party_member){
 void Player::GiveItem(Item* item){
   this->Inv.push_back(item);
 }
-void Player::GiveAbility(Ability& abl, Combatant* pers){
-  if(abl.AbilityType){pers.Abilities.first.push_back(&abl); }
-  else{pers.Abilities.second.push_back(&abl);}
+void Player::GiveAbility(Ability& abl, Combatant* pers){ 
+  if(abl.AbilityType){pers->Abilities.first.push_back(&abl); }
+  else{pers->Abilities.second.push_back(&abl);}
 }
 
 std::string Player::GetPartyAsStr(){
@@ -19,6 +19,14 @@ std::string Player::GetPartyAsStr(){
   }
   return val;
 }
+
+Combatant* Player::GetPartyMember(std::string name){
+  for(Combatant*& i : this->party){
+    if(!name.compare(i->GetName()) && name.compare("No Name")){return i;}
+  }
+  throw std::runtime_exception("tried to get player who didn't exist");
+}
+	
 
 uint16_t Player::GetInput(){
   bool invalid = 1;

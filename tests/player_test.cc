@@ -13,6 +13,8 @@ int main(){
   std::cout << gg.GetName();
   while(i){
     uint16_t input = gg.GetInput();
+    Combatant* p = gg.GetPartyMember(j_name);
+    Ability c4 = ALL_ABILITIES[4];
     switch(input){
     case 1:
       std::cout << "Shut up" << std::endl;
@@ -26,10 +28,10 @@ int main(){
       std::cout << gg.GetInventory() << std::endl;
       break;
     case 4:
-      for(auto& i : gg.GetActiveAbilities()){
+      for(auto& i : jj->GetActiveAbilities()){
 	std::cout << i->Name << "\n";
       }
-      gg.GiveAbility(ALL_ABILITIES[4]);
+      gg.GiveAbility(c4, p);
       break;
     default:
       std::cout << input;
