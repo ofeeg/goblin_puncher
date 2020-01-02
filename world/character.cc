@@ -10,7 +10,7 @@ std::string Character::GetStats(){
         "STR: " + std::to_string(GetSTR()) + "\n" + "DEF: " + std::to_string(GetDEF())
         + "\n" + "ACC: " + std::to_string(GetACC()) + "\n" + "SPD: " + std::to_string(GetSPD())+ "\n";
     return Stats;
-    };
+};
 std::string Character::GetDesc(){return this->CharDesc;};
 std::string Character::GetSpecies(){return this->CharSpecies;};
 std::string Character::GetInventory(){
