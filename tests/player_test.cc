@@ -11,10 +11,11 @@ int main(){
   auto j = Combatant(1,1,1,1,1,1,j_name,j_name,j_name,j_inv,j_abl, j_abl);
   auto* jj = &j;
   std::cout << gg.GetName();
+  gg.SetPartyMember(jj);
+  Combatant* p = gg.GetPartyMember(j_name);
+  Ability c4 = ALL_ABILITIES[4];
   while(i){
     uint16_t input = gg.GetInput();
-    Combatant* p = gg.GetPartyMember(j_name);
-    Ability c4 = ALL_ABILITIES[4];
     switch(input){
     case 1:
       std::cout << "Shut up" << std::endl;
