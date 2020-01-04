@@ -9,8 +9,8 @@ void Player::GiveItem(Item* item){
 }
 void Player::GiveAbility(Ability& abl, Combatant* pers){
   std::pair<std::vector<Ability*>, std::vector<Ability*>>* abl_pair=&(pers->GetAllAbilities());
-  if(abl.AbilityType){abl_pair->first.push_back(&abl); }
-  else{abl_pair->second.push_back(&abl);}
+  if(abl.AbilityType){abl_pair->second.push_back(&abl); }
+  else{abl_pair->first.push_back(&abl);}
 }
 
 std::string Player::GetPartyAsStr(){
@@ -47,3 +47,5 @@ uint16_t Player::GetInput(){
   }
   return i;
 }
+
+void Player::GiveMoney(uint16_t& num){money+=num;} 
