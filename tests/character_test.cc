@@ -10,9 +10,9 @@ Item dummy_item=Item(0,0,0,0,0,0, EQUIP_TYPES::WEAPON, g,  s, d);
 Item nothing=Item();
 Item nothing2=Item();
 
-Ability dummy_ability("DUMMY PASSIVE", TYPES::ATK, 100);
-Ability dummy_ability2("SHIN DUMMY", TYPES::ATK, 2000);
-Ability dummy_ability3("DUMMY ACTIVE", TYPES::DEF, 69);
+Ability dummy_ability(PASSIVE,"DUMMY PASSIVE", TYPES::ATK, 100);
+Ability dummy_ability2(ACTIVE, "SHIN DUMMY", TYPES::ATK, 2000);
+Ability dummy_ability3(ACTIVE, "DUMMY ACTIVE", TYPES::DEF, 69);
  
 
 int main(){

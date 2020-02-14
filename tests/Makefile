@@ -37,6 +37,12 @@ WORLD_TSRC = world_test.cc
 WORLD_COBJ = $(WORLD_CSRC:.cc=.o)
 WORLD_TOBJ = $(WORLD_TSRC:.cc=.o)
 WORLD_EXE = world_test
+PLAYR_CSRC = ../player/player.cc ../world/character.cc ../world/item.cc
+PLAYR_TSRC = player_test.cc
+PLAYR_COBJ = $(PLAYR_CSRC:.cc=.o)
+PLAYR_TOBJ = $(PLAYR_TSRC:.cc=.o)
+PLAYR_EXE = player_test
+
 
 .PHONY : all
 

@@ -57,6 +57,7 @@ void CompareRemains(const std::array<unsigned short, 4>& arr1, const std::array<
 void BattleScene::SetTurnOrder(){
   std::array<unsigned short , 4> P_arr = SortCombatants(this->Player);
   std::array<unsigned short , 4> E_arr = SortCombatants(this->Enemies);
+  //std::cout << "stuff" << std::endl;
   //unsigned short* tmp;
   for(uint16_t i = 0; i < 4; ++i){
     if(Enemies[E_arr[i]].GetSPD() >= Player[P_arr[i]].GetSPD()){
@@ -72,7 +73,7 @@ void BattleScene::SetTurnOrder(){
       }
     }
   }
-  std::cout << this->Turns.Order.size() << std::endl;
+  //std::cout << this->Turns.Order.size() << std::endl;
 }
 
 	  

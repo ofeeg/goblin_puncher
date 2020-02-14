@@ -3,7 +3,7 @@
 std::string p_name="I have 10  SPD";
 std::string p_desc= "Yep.";
 std::string e_name="I  have 5 SPD";
-Ability a(p_desc, 'a',100);
+Ability a(1,p_desc, 'a',100);
 std::vector<Item*>  p_item={};
 std::vector<Ability*> p_no_abl={};
 std::vector<Ability*> p_abl={&a};

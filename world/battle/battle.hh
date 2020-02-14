@@ -6,9 +6,10 @@
 
 
 struct TurnQueue{
-  Combatant EMPTY = Combatant();
+  //Combatant EMPTY = Combatant();
   std::vector<Combatant*> Order{&EMPTY};
   inline void enqueue(Combatant& c){
+    std::cout << "enqueue ran!" << std::endl;
     bool filled = 1;
     unsigned short index = 0;
     Combatant* ptr = &c;
@@ -36,6 +37,7 @@ struct TurnQueue{
 	break;
       }
       if(!IsCurrentTurnHandled){
+       
 	tmp = Order.at(Order.size()-2);
 	Order.at(Order.size()-2) = it;
 	IsCurrentTurnHandled = 1;
