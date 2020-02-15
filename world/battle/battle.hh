@@ -6,7 +6,7 @@
 
 
 struct TurnQueue{
-  //Combatant EMPTY = Combatant();
+  Combatant EMPTY = Combatant();
   std::vector<Combatant*> Order{&EMPTY};
   inline void enqueue(Combatant& c){
     std::cout << "enqueue ran!" << std::endl;

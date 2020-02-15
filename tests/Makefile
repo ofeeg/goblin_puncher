@@ -42,11 +42,15 @@ PLAYR_TSRC = player_test.cc
 PLAYR_COBJ = $(PLAYR_CSRC:.cc=.o)
 PLAYR_TOBJ = $(PLAYR_TSRC:.cc=.o)
 PLAYR_EXE = player_test
-
+MNGR_CSRC = ../world/world.cc ../world/character.cc ../world/item.cc ../world/map.cc ../world/event.cc ../world/battle/battle.cc
+MNGR_TSRC = manager_test.cc
+MNGR_COBJ = $(MNGR_CSRC:.cc=.o)
+MNGR_TOBJ = $(MNGR_TSRC:.cc=.o)
+MNGR_EXE = manager_text
 
 .PHONY : all
 
-all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE)
+all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYER_EXE) $(MNGR_EXE)
 
 $(EVENT_EXE) : $(EVENT_COBJ) $(EVENT_TOBJ)
 	$(CC) $^ -o $@
@@ -62,10 +66,14 @@ $(BATTLE_EXE) : $(BATTLE_COBJ) $(BATTLE_TOBJ)
 	$(CC) $^ -o $@
 $(WORLD_EXE) : $(WORLD_COBJ) $(WORLD_TOBJ)
 	$(CC) $^ -o $@
+$(PLAYR_EXE) : $(PLAYR_COBJ) $(PLAYR_TOBJ)
+	$(CC) $^ -o $@
+$(MNGR_EXE) : $(MNGR_COBJ) $(MNGR_TOBJ)
+	$(CC) $^ -o $@
 
 .cc.o:
 	$(CC) $(CFLAGS) $< -o $@
 
 
 clean :
-	$(RM) *.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE)
+	$(RM) *.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYR_EXE) $(MNGR_EXE)
