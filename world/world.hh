@@ -1,9 +1,10 @@
 #ifndef WORLD
 #define WORLD
-#include "character.hh"
+//#include "character.hh"
 #include "map.hh"
 
-
+class Combatant;
+class Item;
 
 struct partition{
   std::string name;
@@ -14,15 +15,15 @@ struct partition{
 
 struct enemy_partition{
   std::string name;
-  std::vector<Combatant> region;
-  enemy_partition(std::string n, std::vector<Combatant>& r) : region(r), name(n){}
+  std::vector<Combatant*> region;
+  enemy_partition(std::string n, std::vector<Combatant*>& r) : region(r), name(n){}
 };
 
   
 struct item_partition{
   std::string name;
-  std::vector<Item> region;
-  item_partition(std::string n, std::vector<Item>& r) : region(r), name(n){}
+  std::vector<Item*> region;
+  item_partition(std::string n, std::vector<Item*>& r) : region(r), name(n){}
 };
 
 
@@ -35,8 +36,8 @@ public:
   World(int x=1, int y=1, std::vector<partition> r_list={}, std::vector<enemy_partition> e_list={}, std::vector<item_partition> i_list={}) :  WorldMap(Map(x,y)), EnemyLists(e_list), RegionList(r_list), ItemDropLists(i_list){}
   void AccessLocation(int x, int y);
   std::vector<int>* GetRegion(std::string r_name);
-  std::vector<Combatant>* GetEnemies(std::string r_name);
-  std::vector<Item>* GetItems(std::string r_name);
+  std::vector<Combatant*>* GetEnemies(std::string r_name);
+  std::vector<Item*>* GetItems(std::string r_name);
 };
 
 #endif

@@ -15,8 +15,8 @@ std::vector<int>* World::GetRegion(std::string r_name){
   }
   throw std::invalid_argument("Name does not exist");
 }
-std::vector<Combatant>* World::GetEnemies(std::string r_name){
-  std::vector<Combatant>* wanted; 
+std::vector<Combatant*>* World::GetEnemies(std::string r_name){
+  std::vector<Combatant*>* wanted; 
   for(enemy_partition& i : this->EnemyLists){
     if(r_name.compare(i.name)==0){
       wanted = &i.region;
@@ -27,8 +27,8 @@ std::vector<Combatant>* World::GetEnemies(std::string r_name){
 }
 
 
-std::vector<Item>* World::GetItems(std::string r_name){
-  std::vector<Item>* wanted; 
+std::vector<Item*>* World::GetItems(std::string r_name){
+  std::vector<Item*>* wanted; 
   for(item_partition& i : this->ItemDropLists){
     if(r_name.compare(i.name)==0){
       wanted = &i.region;
