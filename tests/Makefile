@@ -42,11 +42,11 @@ PLAYR_TSRC = player_test.cc
 PLAYR_COBJ = $(PLAYR_CSRC:.cc=.o)
 PLAYR_TOBJ = $(PLAYR_TSRC:.cc=.o)
 PLAYR_EXE = player_test
-MNGR_CSRC = ../world/world.cc ../world/character.cc ../world/item.cc ../world/map.cc ../world/event.cc ../world/battle/battle.cc
+MNGR_CSRC = ../world/world.cc ../world/character.cc ../world/item.cc ../world/map.cc ../world/event.cc ../world/battle/battle.cc ../player/player.cc ../world/manager.cc
 MNGR_TSRC = manager_test.cc
 MNGR_COBJ = $(MNGR_CSRC:.cc=.o)
 MNGR_TOBJ = $(MNGR_TSRC:.cc=.o)
-MNGR_EXE = manager_text
+MNGR_EXE = manager_test
 
 .PHONY : all
 

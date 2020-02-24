@@ -1,7 +1,7 @@
-#ifndef WORLD
-#define WORLD
 //#include "character.hh"
 #include "map.hh"
+#ifndef WORLD
+#define WORLD
 
 class Combatant;
 class Item;

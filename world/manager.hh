@@ -7,7 +7,7 @@
 class manager{
   World* managed;
 public:
-  manager(World& x) : managed(x){}
-  
-}
+  manager(World& x) : managed(&x){}
+  void send_message(uint16_t input);
+};
 #endif
