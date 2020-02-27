@@ -50,7 +50,7 @@ MNGR_EXE = manager_test
 
 .PHONY : all
 
-all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYER_EXE) $(MNGR_EXE)
+all : $(EVENT_EXE) $(CHARA_EXE) $(ITEM_EXE) $(MAP_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYR_EXE) $(MNGR_EXE)
 
 $(EVENT_EXE) : $(EVENT_COBJ) $(EVENT_TOBJ)
 	$(CC) $^ -o $@
@@ -76,4 +76,4 @@ $(MNGR_EXE) : $(MNGR_COBJ) $(MNGR_TOBJ)
 
 
 clean :
-	$(RM) *.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYR_EXE) $(MNGR_EXE)
+	$(RM) *.o ../player/*.o  ../world/*.o *~ $(CHARA_EXE) $(EVENT_EXE) $(MAP_EXE) $(ITEM_EXE) $(ABILT_EXE) $(BATTLE_EXE) $(WORLD_EXE) $(PLAYR_EXE) $(MNGR_EXE)
