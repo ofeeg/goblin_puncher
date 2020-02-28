@@ -5,6 +5,7 @@
 
 class Player: public Combatant{
   std::vector<Combatant*> party{this};
+  std::vector<Flag*> player_flags{};
   uint16_t money=0;
 public:
   Player(int HP=0,int MP=0, int STR=0,int DEF=0,int ACC=0,int SPD=0, std::string name= "No Name", std::string species="None", std::string desc= "No Description", std::vector<Item*> items={},std::vector<Ability*> passive={}, std::vector<Ability*> active={}) : Combatant(HP,MP,STR,DEF,ACC,SPD,name, species, desc, items,passive, active){}
@@ -17,6 +18,7 @@ public:
   void GiveAbility(Ability& abl, Combatant* pers);
   uint16_t GetMoney(){return this->money;};
   void GiveMoney(uint16_t& num);
+  void GiveFlag(Flag& flag){player_flags.push_back(&flag);}
   //std::string  GetName(){return PlayerName;}        
 };
 #endif

@@ -16,5 +16,6 @@ int main(){
   manager man(h);
   uint16_t input = p.GetInput();
   man.send_message(input);
+  man.update_player();
   return 0;
 }

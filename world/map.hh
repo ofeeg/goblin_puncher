@@ -9,7 +9,8 @@ class Map{
   int len, wid;
   void InitNodes();
 public:
-  Map(int x, int y): wid(x), len(y){InitNodes();}
+  int area;
+  Map(int x, int y): wid(x), len(y){InitNodes(); area=x*y;}
   void PlayEvent(int x, int y);
 };
 #endif

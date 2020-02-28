@@ -9,5 +9,6 @@ class manager{
 public:
   manager(World& x) : managed(&x){}
   void send_message(uint16_t input);
+  void update_player_location();
 };
 #endif
