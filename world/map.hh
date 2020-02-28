@@ -6,11 +6,11 @@
    
 class Map{
   std::vector<Event> EventList;
-  int len, wid;
+  int len;
   void InitNodes();
 public:
-  int area;
-  Map(int x, int y): wid(x), len(y){InitNodes(); area=x*y;}
+  int wid;
+  Map(int x, int y): wid(x), len(y){InitNodes();}
   void PlayEvent(int x, int y);
 };
 #endif
