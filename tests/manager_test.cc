@@ -14,8 +14,9 @@ auto p = Player();
 
 int main(){
   manager man(h);
+  int i = man.get_current_location_val();
   uint16_t input = p.GetInput();
   man.send_message(input);
-  man.update_player();
+  man.update_player_location();
   return 0;
 }

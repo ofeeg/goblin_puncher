@@ -1,5 +1,6 @@
 //#include "character.hh"
 #include "map.hh"
+#include<utility>
 #ifndef WORLD
 #define WORLD
 
@@ -8,8 +9,8 @@ class Item;
 
 struct partition{
   std::string name;
-  std::vector<int> region;
-  partition(std::string n, std::vector<int>& r) : region(r), name(n){}
+  std::vector< std::pair<int, int>> region;
+  partition(std::string n, std::vector<std::pair<int, int>>& r) : region(r), name(n){}
 };
 
 
@@ -35,7 +36,8 @@ class World{
 public:
   World(int x=1, int y=1, std::vector<partition> r_list={}, std::vector<enemy_partition> e_list={}, std::vector<item_partition> i_list={}) :  WorldMap(Map(x,y)), EnemyLists(e_list), RegionList(r_list), ItemDropLists(i_list){}
   void AccessLocation(int x, int y);
-  std::vector<int>* GetRegion(std::string r_name);
+  std::vector<std::pair<int, int>>* GetRegion(std::string r_name);
+  std::string GetRegionName(int x, int y);
   std::vector<Combatant*>* GetEnemies(std::string r_name);
   std::vector<Item*>* GetItems(std::string r_name);
 };
